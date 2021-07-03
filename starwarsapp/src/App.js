@@ -14,10 +14,13 @@ function App() {
       // fetching data for each film
       let res = await fetch('https://swapi.dev/api/films/?format=json')
       // creating data variable to receive data back in that variable
-      let data = res.json()
+      let data = await res.json()
       setFilms(data.results)
     }
+
+    fetchFilms()
   }, [])
+  // console.log('films', films)
 
   return (
     <div className="App">
