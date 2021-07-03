@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Container } from 'semantic-ui-react'
+import { Container, Dimmer, Loader } from 'semantic-ui-react'
 import Home from './components/Home'
 import FilmOne from './components/FilmOne'
 import FilmTwo from './components/FilmTwo'
@@ -78,6 +78,7 @@ function App() {
     fetchFilmFour()
     fetchFilmFive()
     fetchFilmSix()
+    setLoading(false)
   }, [])
   console.log('filmOne', filmOne)
 
@@ -86,7 +87,13 @@ function App() {
       <Router>
         <Navbar />
         <Container>
-         <Switch>
+          {/* If Loading is true, ie the data hasn't been fetched, show loader */}
+          {loading ? (
+            <Dimmer active inverted>
+              <Loader inverted>Loading</Loader>
+            </Dimmer>
+          ) : (
+            <Switch>
            <Route exact path='/'>
              <Home />
            </Route>
@@ -109,6 +116,7 @@ function App() {
              <FilmSix />
            </Route>
          </Switch>
+          )}
         </Container>
       </Router>
       </>
