@@ -26,7 +26,7 @@ function App() {
   useEffect(() =>{
     async function fetchFilmOne() {
       // fetching data for each film
-      let res = await fetch('https://swapi.dev/api/films/4/?format=json')
+      let res = await fetch('https://swapi.dev/api/films/?format=json')
       // creating data variable to receive data back in that variable
       let data = await res.json()
       setFilmOne(data.results)
