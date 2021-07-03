@@ -1,9 +1,12 @@
 import React from 'react'
+import { Menu, Container } from 'semantic-ui-react'
 
 export default function NavBar() {
   return (
-      <div>
-          
-      </div>
+      <Menu inverted>
+        <Container>
+          <Menu.Item name="Star Wars Films" />
+        </Container>
+      </Menu>
   )
 }

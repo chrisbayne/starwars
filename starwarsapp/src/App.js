@@ -1,5 +1,6 @@
 import './App.css'
 import React, { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
 
 function App() {
   // state variables
@@ -24,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Star Wars App</h1>
+      <Navbar />
     </div>
   );
 }
