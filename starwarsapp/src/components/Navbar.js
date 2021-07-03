@@ -9,7 +9,7 @@ export default function NavBar() {
           <Link to='/'>
             <Menu.Item name='Home' />
           </Link>
-          <Link to='/filmone'>
+          <Link to='/films'>
             <Menu.Item name="The Phantom Menace" />
           </Link>
           <Link to='/filmtwo'>

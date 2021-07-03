@@ -23,51 +23,63 @@ function App() {
   // Passing in two callback functions. Second callback function
   // is an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
-  useEffect(() =>{
+  useEffect(() => {
+    // THE PHANTOM MENACE
     async function fetchFilmOne() {
-      // fetching data for each film
+      // fetching data for first film
       let res = await fetch('https://swapi.dev/api/films/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmOne(data.results)
     }
 
+    // ATTACK OF THE CLONES
     async function fetchFilmTwo() {
-      // fetching data for each film
+      // fetching data for second film
       let res = await fetch('https://swapi.dev/api/films/5/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmTwo(data.results)
     }
 
+    // REVENGE OF THE SITH
     async function fetchFilmThree() {
-      // fetching data for each film
+      // fetching data for third film
       let res = await fetch('https://swapi.dev/api/films/6/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmThree(data.results)
     }
 
+    // A NEW HOPE
     async function fetchFilmFour() {
-      // fetching data for each film
+      // fetching data for fourth film
       let res = await fetch('https://swapi.dev/api/films/1/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmFour(data.results)
     }
 
+    // THE EMPIRE STRIKES BACK
     async function fetchFilmFive() {
-      // fetching data for each film
+      // fetching data for fifth film
       let res = await fetch('https://swapi.dev/api/films/2/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmFive(data.results)
     }
 
+    // RETURN OF THE JEDI
     async function fetchFilmSix() {
-      // fetching data for each film
+      // fetching data for sixth film
       let res = await fetch('https://swapi.dev/api/films/3/?format=json')
-      // creating data variable to receive data back in that variable
+      // creating 'data' variable to receive data back in that variable
+      // with an await promise
       let data = await res.json()
       setFilmSix(data.results)
     }
@@ -78,8 +90,10 @@ function App() {
     fetchFilmFour()
     fetchFilmFive()
     fetchFilmSix()
+    // Loader is set to false
     setLoading(false)
   }, [])
+  // Checking for data returned in the console
   console.log('filmOne', filmOne)
 
   return (
@@ -94,28 +108,29 @@ function App() {
             </Dimmer>
           ) : (
             <Switch>
-           <Route exact path='/'>
-             <Home />
-           </Route>
-           <Route  exact path='/filmone'>
-             <FilmOne />
-           </Route>
-           <Route exact path='/filmtwo'>
-             <FilmTwo />
-           </Route>
-           <Route exact path='/filmthree'>
-             <FilmThree />
-           </Route>
-           <Route exact path='/filmfour'>
-             <FilmFour />
-           </Route>
-           <Route exact path='/filmfive'>
-             <FilmFive />
-           </Route>
-           <Route exact path='/filmsix'>
-             <FilmSix />
-           </Route>
-         </Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route  exact path='/films'>
+                {/* Passing in the state variable for the first film (TPM) as props */}
+                <FilmOne data={filmOne} />
+              </Route>
+              <Route exact path='/films/5'>
+                <FilmTwo />
+              </Route>
+              <Route exact path='/films/6'>
+                <FilmThree />
+              </Route>
+              <Route exact path='/films/1'>
+                <FilmFour />
+              </Route>
+              <Route exact path='/films/2'>
+                <FilmFive />
+              </Route>
+              <Route exact path='/films/3'>
+                <FilmSix />
+              </Route>
+            </Switch>
           )}
         </Container>
       </Router>
