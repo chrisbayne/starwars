@@ -20,7 +20,7 @@ function App() {
 
     fetchFilms()
   }, [])
-  // console.log('films', films)
+  console.log('films', films)
 
   return (
     <div className="App">
