@@ -20,6 +20,8 @@ function App() {
   const [filmSix, setFilmSix] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const [filmOneCharacters, setFilmOneCharacters] = useState ([])
+
   // Passing in two callback functions. Second callback function
   // is an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
@@ -33,7 +35,13 @@ function App() {
       let data = await res.json()
       setFilmOne(data.results)
     }
-
+    /////////////////////////////////////////
+    async function fetchFilmOneCharacters() {
+      let res = await fetch('https://swapi.dev/api/people/?format=json')
+      let data = await res.json()
+      setFilmOneCharacters(data.results)
+    }
+    //////////////////////////////////////////
     // ATTACK OF THE CLONES
     async function fetchFilmTwo() {
       // fetching data for second film
@@ -90,11 +98,13 @@ function App() {
     fetchFilmFour()
     fetchFilmFive()
     fetchFilmSix()
+
+    fetchFilmOneCharacters()
     // Loader is set to false
     setLoading(false)
   }, [])
   // Checking for data returned in the console
-  console.log('filmOne', filmOne)
+  //console.log('filmOne', filmOne)
 
   return (
       <>
@@ -115,20 +125,20 @@ function App() {
                 {/* Passing in the state variable for the first film (TPM) as props */}
                 <FilmOne data={filmOne} />
               </Route>
-              <Route exact path='/films/5'>
-                <FilmTwo />
+              <Route exact path='/films'>
+                <FilmTwo data={filmTwo}/>
               </Route>
               <Route exact path='/films/6'>
-                <FilmThree />
+                <FilmThree data={filmThree}/>
               </Route>
               <Route exact path='/films/1'>
-                <FilmFour />
+                <FilmFour data={filmFour}/>
               </Route>
               <Route exact path='/films/2'>
-                <FilmFive />
+                <FilmFive data={filmFive}/>
               </Route>
               <Route exact path='/films/3'>
-                <FilmSix />
+                <FilmSix data={filmSix}/>
               </Route>
             </Switch>
           )}
