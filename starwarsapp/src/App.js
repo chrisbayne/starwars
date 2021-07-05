@@ -10,7 +10,7 @@ import FilmFour from './components/FilmFour'
 import FilmFive from './components/FilmFive'
 import FilmSix from './components/FilmSix'
 
-function App() {
+export default function App() {
   // state variables
   const [filmOne, setFilmOne] = useState([])
   const [filmTwo, setFilmTwo] = useState([])
@@ -20,75 +20,87 @@ function App() {
   const [filmSix, setFilmSix] = useState([])
   const [loading, setLoading] = useState(true)
 
-  const [filmOneCharacters, setFilmOneCharacters] = useState ([])
+  //const [filmOneCharacters, setFilmOneCharacters] = useState ([])
 
-  // Passing in two callback functions. Second callback function
+  // Passing in six callback functions. Seventh callback function
   // is an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
   useEffect(() => {
     // THE PHANTOM MENACE
     async function fetchFilmOne() {
       // fetching data for first film
-      let res = await fetch('https://swapi.dev/api/films/?format=json')
+      const res = await fetch('https://swapi.dev/api/films')
+      
+      // Error handling
+      // if (!response.ok) {
+      //   const message = `An error has occured: ${response.status}`;
+      //   throw new Error(message);
+      // }
+
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmOne(data.results)
+      // Loader is set to false when the data needs to be loaded
+      setLoading(false)
+      console.log(data.results)
     }
-    /////////////////////////////////////////
-    async function fetchFilmOneCharacters() {
-      let res = await fetch('https://swapi.dev/api/people/?format=json')
-      let data = await res.json()
-      setFilmOneCharacters(data.results)
-    }
+
+    ///////////////////////////////////////
+    // async function fetchFilmOneCharacters() {
+    //   let res = await fetch('https://swapi.dev/api/people/?format=json')
+    //   let data = await res.json()
+    //   setFilmOneCharacters(data.results)
+    // }
     //////////////////////////////////////////
+
     // ATTACK OF THE CLONES
     async function fetchFilmTwo() {
       // fetching data for second film
-      let res = await fetch('https://swapi.dev/api/films/5/?format=json')
+      const res = await fetch('https://swapi.dev/api/films/5/?format=json')
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmTwo(data.results)
     }
 
     // REVENGE OF THE SITH
     async function fetchFilmThree() {
       // fetching data for third film
-      let res = await fetch('https://swapi.dev/api/films/6/?format=json')
+      const res = await fetch('https://swapi.dev/api/films/6/?format=json')
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmThree(data.results)
     }
 
     // A NEW HOPE
     async function fetchFilmFour() {
       // fetching data for fourth film
-      let res = await fetch('https://swapi.dev/api/films/1/?format=json')
+      const res = await fetch('https://swapi.dev/api/films/1/?format=json')
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmFour(data.results)
     }
 
     // THE EMPIRE STRIKES BACK
     async function fetchFilmFive() {
       // fetching data for fifth film
-      let res = await fetch('https://swapi.dev/api/films/2/?format=json')
+      const res = await fetch('https://swapi.dev/api/films/2/?format=json')
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmFive(data.results)
     }
 
     // RETURN OF THE JEDI
     async function fetchFilmSix() {
       // fetching data for sixth film
-      let res = await fetch('https://swapi.dev/api/films/3/?format=json')
+      const res = await fetch('https://swapi.dev/api/films/3/?format=json')
       // creating 'data' variable to receive data back in that variable
       // with an await promise
-      let data = await res.json()
+      const data = await res.json()
       setFilmSix(data.results)
     }
 
@@ -98,20 +110,18 @@ function App() {
     fetchFilmFour()
     fetchFilmFive()
     fetchFilmSix()
-
-    fetchFilmOneCharacters()
-    // Loader is set to false
-    setLoading(false)
+    //fetchFilmOneCharacters()
   }, [])
+
   // Checking for data returned in the console
-  //console.log('filmOne', filmOne)
+  // console.log('filmOne', filmOne)
 
   return (
       <>
       <Router>
         <Navbar />
         <Container>
-          {/* If Loading is true, ie the data hasn't been fetched, show loader */}
+          {/* If Loading is true, ie the data is in the process of being fetched, show loader */}
           {loading ? (
             <Dimmer active inverted>
               <Loader inverted>Loading</Loader>
@@ -148,4 +158,4 @@ function App() {
   );
 }
 
-export default App;
+// export default App;

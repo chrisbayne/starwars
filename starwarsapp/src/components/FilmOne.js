@@ -5,13 +5,13 @@ import { Card, Grid } from 'semantic-ui-react'
 export default function FilmOne({ data }) {
   return (
       <>
-      <h1 style={{ display:'flex', justifyContent:'center' }}>The Phantom Menace</h1>
+      {/* <h1 style={{ display:'flex', justifyContent:'center' }}>The Phantom Menace</h1> */}
       <Grid columns={1}>
-        {/* For the item/film in the data array return grid with film info */}
+        {/* For the item/film in the data array return grid with filmOne info */}
         {data.map((filmOne, i ) => {
           return (
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
-              <Card style={{ width: '100rem' }}>
+              <Card style={{ width: '100rem' }} color='red'>
                 <Card.Content>
                   <Card.Header><h2 style={{textAlign: 'center'}}>{filmOne.title}</h2></Card.Header>
                   <Card.Description>
