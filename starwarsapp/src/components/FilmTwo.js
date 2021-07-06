@@ -5,24 +5,34 @@ import { Card, Grid } from 'semantic-ui-react'
 export default function FilmTwo({ data }) {
   return (
       <>
-      <h1>Attack Of The Clones</h1>
+      {/* <h1 style={{ display:'flex', justifyContent:'center' }}>The Phantom Menace</h1> */}
       <Grid columns={1}>
-        {/* For the item/film in the data array return grid with film info */}
+        {/* For the item/film in the data array return grid with filmOne info */}
         {data.map((filmTwo, i ) => {
           return (
-            <Grid.Column key={i}>
-              <Card>
+            <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
+              <Card style={{ width: '100rem' }} color='orange'>
                 <Card.Content>
-                  <Card.Header>{filmTwo.title}</Card.Header>
+                  <Card.Header><h2 style={{textAlign: 'center'}}>{filmTwo.title}</h2></Card.Header>
                   <Card.Description>
-                    <strong>Episode: </strong>
+                    <strong><u>Episode: </u></strong>
                     <p>{filmTwo.episode_id}</p>
-                    <strong>Opening Crawl</strong>
+                    <strong><u>Opening Crawl</u></strong>
                     <p>{filmTwo.opening_crawl}</p>
-                    <strong>Director</strong>
+                    <strong><u>Director</u></strong>
                     <p>{filmTwo.director}</p>
-                    <strong>Characters</strong>
+                    <strong><u>Release Date</u></strong>
+                    <p>{filmTwo.release_date}</p>
+                    <strong><u>Characters</u></strong>
                     <p>{filmTwo.characters}</p>
+                    <strong><u>Planets</u></strong>
+                    <p>{filmTwo.planets}</p>
+                    <strong><u>Starships</u></strong>
+                    <p>{filmTwo.starships}</p>
+                    <strong><u>Vehicles</u></strong>
+                    <p>{filmTwo.vehicles}</p>
+                    <strong><u>Species</u></strong>
+                    <p>{filmTwo.species}</p>
                   </Card.Description>
                 </Card.Content>
               </Card>
