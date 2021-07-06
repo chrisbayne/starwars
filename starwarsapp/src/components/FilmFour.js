@@ -11,7 +11,7 @@ export default function FilmFour({ data }) {
         {data.map((filmFour, i ) => {
           return (
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
-              <Card style={{ width: '100rem' }} color='orange'>
+              <Card style={{ width: '100rem' }} color='blue'>
                 <Card.Content>
                   <Card.Header><h2 style={{textAlign: 'center'}}>{filmFour.title}</h2></Card.Header>
                   <Card.Description>

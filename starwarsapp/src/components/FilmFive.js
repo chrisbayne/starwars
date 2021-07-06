@@ -11,7 +11,7 @@ export default function FilmFive({ data }) {
         {data.map((filmFive, i ) => {
           return (
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
-              <Card style={{ width: '100rem' }} color='orange'>
+              <Card style={{ width: '100rem' }} color='purple'>
                 <Card.Content>
                   <Card.Header><h2 style={{textAlign: 'center'}}>{filmFive.title}</h2></Card.Header>
                   <Card.Description>
