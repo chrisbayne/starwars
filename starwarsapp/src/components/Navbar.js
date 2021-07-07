@@ -8,6 +8,7 @@ export default function NavBar() {
       <Menu inverted>
         <Container>
           <Link to='/'>
+            <Menu.Item name='Home' />
           </Link>
           <Link to='/films/1'>
             <Menu.Item name="The Phantom Menace" />

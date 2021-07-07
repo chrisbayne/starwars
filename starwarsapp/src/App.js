@@ -33,8 +33,9 @@ export default function App() {
       try {
       // fetching data for the first film
       const response = await fetch(url)
-        console.log(response)
-      // if the response is not okay, fire a network failure status  
+      console.log(response)
+
+      // if the response is *not* okay, fire a network failure message and status  
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
@@ -46,6 +47,7 @@ export default function App() {
       setFilmOne(data.results.splice(3,1))
       setError(null)
       
+      // catch the error if it exists and display on the page and in the console
       } catch(err) {
         setError(err.message)
         console.log(err.message)
@@ -61,53 +63,153 @@ export default function App() {
     // invoked once
   }, [])
 
-  /// ATTACK OF THE CLONES
+  /// ATTACK OF THE CLONES 4,1
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+      console.log(response)
+
+      // if the response is not okay, fire a network failure status  
+      if(!response.ok) {
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
+      }
+
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmTwo(data.results.splice(4,1))
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
+      }
     })()
+
     setLoading(false)
   }, [])
 
-  /// REVENGE OF THE SITH
+  /// REVENGE OF THE SITH 5,1
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+      console.log(response)
+
+      // if the response is not okay, fire a network failure status  
+      if(!response.ok) {
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
+      }
+
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmThree(data.results.splice(5,1))
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
+      }
     })()
+
     setLoading(false)
   }, [])
 
-  /// A NEW HOPE
+  /// A NEW HOPE 0,1
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+      console.log(response)
+
+      // if the response is not okay, fire a network failure status  
+      if(!response.ok) {
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
+      }
+
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmFour(data.results.splice(0,1))
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
+      }
     })()
+
     setLoading(false)
   }, [])
 
-  /// THE EMPIRE STRIKES BACK
+  /// THE EMPIRE STRIKES BACK 1,1
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+      console.log(response)
+
+      // if the response is not okay, fire a network failure status  
+      if(!response.ok) {
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
+      }
+
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmFive(data.results.splice(1,1))
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
+      }
     })()
+
     setLoading(false)
   }, [])
 
-  /// RETURN OF THE JEDI
+  /// RETURN OF THE JEDI 2,1
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+      console.log(response)
+
+      // if the response is not okay, fire a network failure status  
+      if(!response.ok) {
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
+      }
+
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmSix(data.results.splice(2,1))
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
+      }
     })()
+
     setLoading(false)
   }, [])
 
@@ -131,7 +233,7 @@ export default function App() {
                 { error && <h1 style={{ 
                   fontSize: '5em', 
                   backgroundColor: '#232323', 
-                  color: '#55C2B5', 
+                  color: '#6D6A55', 
                   textAlign: 'center', 
                   marginTop: '35vh' 
                   }}>{ error }
@@ -139,18 +241,58 @@ export default function App() {
                 <FilmOne data={filmOne} />
               </Route>
               <Route exact path='/films/2'>
+              { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#89621F', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmTwo data={filmTwo}/>
               </Route>
               <Route exact path='/films/3'>
+              { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#7C2D2D', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmThree data={filmThree}/>
               </Route>
               <Route exact path='/films/4'>
+              { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#355F8D', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmFour data={filmFour}/>
               </Route>
               <Route exact path='/films/5'>
+              { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#4C4B77', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmFive data={filmFive}/>
               </Route>
               <Route exact path='/films/6'>
+              { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#355F3C', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmSix data={filmSix}/>
               </Route>
             </Switch>
