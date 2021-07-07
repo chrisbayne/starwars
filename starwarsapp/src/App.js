@@ -27,12 +27,14 @@ export default function App() {
   // an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
 
-  /// THE PHANTOM MENACE
+  /// THE PHANTOM MENACE 3,1
   useEffect(() => {
+    // wrapping the async function so that it is invoked immediately
     (async () => {
       try {
       // fetching all film data
       const response = await fetch(url)
+      // check to see if the console is receiving the data from the url
       console.log(response)
 
       // if the response is *not* okay, fire a network failure message and status  
@@ -43,9 +45,9 @@ export default function App() {
       // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the specific data for the first film by splicing out what is not needed
+      // store and splice the specific data for the first film
       setFilmOne(data.results.splice(3,1))
-      
+
       // setting the error to null if the network request is good
       setError(null)
       

@@ -9,7 +9,7 @@ export default function Home() {
                 color: '#55C2B5', 
                 textAlign: 'center', 
                 marginTop: '35vh' 
-                }}>A Long Time Ago In A Galaxy Far Far Away...
+                }}>A Long Time Ago In A Galaxy Far Far Away....
             </h1>
         </>
     )
