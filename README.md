@@ -48,4 +48,4 @@ Next, copy paste <i><b>npm i react-router react-router-dom semantic-ui-react sem
 
 Next run <i><b>code .</b></i> to open up Visual Studio Code to view the code (if you use VSC).
 
-Once the dependencies been installed successfully and the code is shown in your code editor, run <b>npm start</b> to view the application in your browser.
+Once the dependencies been installed successfully and the code is shown in your code editor, run <i><b>npm start</b></i> to view the application in your browser.
