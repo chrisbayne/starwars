@@ -5,7 +5,6 @@ import { Card, Grid } from 'semantic-ui-react'
 export default function FilmThree({ data }) {
   return (
       <>
-      {/* <h1 style={{ display:'flex', justifyContent:'center' }}>The Phantom Menace</h1> */}
       <Grid columns={1}>
         {/* For the item/film in the data array return grid with filmOne info */}
         {data.map((filmThree, i ) => {
@@ -13,7 +12,7 @@ export default function FilmThree({ data }) {
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
               <Card style={{ width: '100rem' }} color='yellow'>
                 <Card.Content>
-                  <Card.Header><h2 style={{textAlign: 'center'}}>{filmThree.title}</h2></Card.Header>
+                  <Card.Header><h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>{filmThree.title}</h1></Card.Header>
                   <Card.Description>
                     <strong><u>Episode: </u></strong>
                     <p>{filmThree.episode_id}</p>

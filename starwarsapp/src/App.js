@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Container, Dimmer, Loader } from 'semantic-ui-react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
 import FilmOne from './components/FilmOne'
 import FilmTwo from './components/FilmTwo'
@@ -26,23 +26,33 @@ export default function App() {
   // is an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
 
-  // THE PHANTOM MENACE
+  /// THE PHANTOM MENACE
   useEffect(() => {
     (async () => {
+      try {
+      // fetching data for the first film
       const response = await fetch(url)
+
+      if(!response.ok) {
+        throw new Error(`HTTP ERROR! Status: ${response.status}`)
+      }
+      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
       setFilmOne(data.results.splice(3,1))
+      } catch(e) {
+        console.log(e)
+      }
     })()
 
     // Loader is set to false when the data needs to be loaded
-    setLoading(true)
+    setLoading(false)
     
     // Dependency array listening for when to reinvoke the function
     // But passing it an empty array so that the function is only
     // invoked once
   }, [])
 
-  // ATTACK OF THE CLONES
+  /// ATTACK OF THE CLONES
   useEffect(() => {
     (async () => {
       const response = await fetch(url)
@@ -52,7 +62,7 @@ export default function App() {
     setLoading(false)
   }, [])
 
-  // REVENGE OF THE SITH
+  /// REVENGE OF THE SITH
   useEffect(() => {
     (async () => {
       const response = await fetch(url)
@@ -62,7 +72,7 @@ export default function App() {
     setLoading(false)
   }, [])
 
-  // A NEW HOPE
+  /// A NEW HOPE
   useEffect(() => {
     (async () => {
       const response = await fetch(url)
@@ -72,18 +82,17 @@ export default function App() {
     setLoading(false)
   }, [])
 
-  // THE EMPIRE STRIKES BACK
+  /// THE EMPIRE STRIKES BACK
   useEffect(() => {
     (async () => {
       const response = await fetch(url)
       const data = await response.json()
       setFilmFive(data.results.splice(1,1))
     })()
-    console.log(filmFive)
     setLoading(false)
   }, [])
 
-  // RETURN OF THE JEDI
+  /// RETURN OF THE JEDI
   useEffect(() => {
     (async () => {
       const response = await fetch(url)
