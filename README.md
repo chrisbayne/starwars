@@ -44,8 +44,8 @@ To begin running this application, first clone it by copying this url into your 
 
 Once the project has been cloned to your machine, open terminal from the root folder and cd into the folder titled <i>'starwarsapp'</i> and <b>npm install</b> the necessary node modules to run the application.
 
-Next, copy paste <b>npm i react-router react-router-dom semantic-ui-react semantic-ui-css</b> into the command line within that folder and press enter.
+Next, copy paste <i><b>npm i react-router react-router-dom semantic-ui-react semantic-ui-css</b></i> into the command line within that folder and press enter.
 
-Next run <b>code .</b> to open up Visual Studio Code to view the code (if you use VSC).
+Next run <i><b>code .</b></i> to open up Visual Studio Code to view the code (if you use VSC).
 
 Once the dependencies been installed successfully and the code is shown in your code editor, run <b>npm start</b> to view the application in your browser.
