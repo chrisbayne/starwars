@@ -3,11 +3,11 @@ import { Menu, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 export default function NavBar() {
+  
   return (
       <Menu inverted>
         <Container>
           <Link to='/'>
-            <Menu.Item name='Home' />
           </Link>
           <Link to='/films/1'>
             <Menu.Item name="The Phantom Menace" />

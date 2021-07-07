@@ -1,18 +1,18 @@
 import React from 'react'
 import { Card, Grid } from 'semantic-ui-react'
 
-// Extracting data props from filmOne route
+// Extracting data props from filmFour route
 export default function FilmFour({ data }) {
   return (
       <>
       <Grid columns={1}>
-        {/* For the item/film in the data array return grid with filmOne info */}
+        {/* For the item/film in the data array return grid with filmFour info */}
         {data.map((filmFour, i ) => {
           return (
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
-              <Card style={{ width: '100rem' }} color='blue'>
+              <Card style={{ width: '100rem', marginTop: '5vh', borderRadius: '15px' }} color='blue'>
                 <Card.Content>
-                  <Card.Header><h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>{filmFour.title}</h1></Card.Header>
+                  <Card.Header><h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>Episode IV - {filmFour.title}</h1></Card.Header>
                   <Card.Description>
                     <strong><u>Episode: </u></strong>
                     <p>{filmFour.episode_id}</p>

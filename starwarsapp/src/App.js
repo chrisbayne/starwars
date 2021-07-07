@@ -19,6 +19,7 @@ export default function App() {
   const [filmFive, setFilmFive] = useState([])
   const [filmSix, setFilmSix] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   const url = 'https://swapi.dev/api/films/'
 
@@ -32,15 +33,23 @@ export default function App() {
       try {
       // fetching data for the first film
       const response = await fetch(url)
-
+        console.log(response)
+      // if the response is not okay, fire a network failure status  
       if(!response.ok) {
-        throw new Error(`HTTP ERROR! Status: ${response.status}`)
+        throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
+
       // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
+
+      // store the data
       setFilmOne(data.results.splice(3,1))
-      } catch(e) {
-        console.log(e)
+      setError(null)
+      
+      } catch(err) {
+        setError(err.message)
+        console.log(err.message)
+        // alert(err)
       }
     })()
 
@@ -118,7 +127,15 @@ export default function App() {
                 <Home />
               </Route>
               <Route  exact path='/films/1'>
-                {/* Passing in the state variable for the first film (TPM) as props */}
+                {/* Passing in the state variable for the first film (TPM) as props. If there is a network error, display the error, otherwise display the fetched data. */}
+                { error && <h1 style={{ 
+                  fontSize: '5em', 
+                  backgroundColor: '#232323', 
+                  color: '#55C2B5', 
+                  textAlign: 'center', 
+                  marginTop: '35vh' 
+                  }}>{ error }
+                </h1> }
                 <FilmOne data={filmOne} />
               </Route>
               <Route exact path='/films/2'>
@@ -141,5 +158,5 @@ export default function App() {
         </Container>
       </Router>
       </>
-  );
+  )
 }

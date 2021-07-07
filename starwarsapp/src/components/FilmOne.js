@@ -10,9 +10,9 @@ export default function FilmOne({ data }) {
         {data.map((filmOne, i ) => {
           return (
             <Grid.Column key={i} style={{ display:'flex', justifyContent:'center' }}>
-              <Card style={{ width: '100rem' }} color='red'>
+              <Card style={{ width: '100rem', marginTop: '5vh', borderRadius: '15px' }} color='red'>
                 <Card.Content>
-                  <Card.Header><h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>{filmOne.title}</h1></Card.Header>
+                  <Card.Header><h1 style={{ textAlign: 'center', textDecoration: 'underline' }}>Episode I - {filmOne.title}</h1></Card.Header>
                   <Card.Description>
                     <strong><u>Episode: </u></strong>
                     <p>{filmOne.episode_id}</p>

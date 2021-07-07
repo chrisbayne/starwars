@@ -8,7 +8,7 @@ export default function Home() {
                 backgroundColor: '#232323', 
                 color: '#55C2B5', 
                 textAlign: 'center', 
-                marginTop: '40vh' 
+                marginTop: '35vh' 
                 }}>A Long Time Ago In A Galaxy Far Far Away...
             </h1>
         </>
