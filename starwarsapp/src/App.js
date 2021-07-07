@@ -23,15 +23,15 @@ export default function App() {
 
   const url = 'https://swapi.dev/api/films/'
 
-  // Passing in six callback functions. Seventh callback function
-  // is an empty dependency array since the effect is only called once
+  // Passing in six callback functions. Each callback function has 
+  // an empty dependency array since the effect is only called once
   // the component mounts to the DOM - it's only called once
 
   /// THE PHANTOM MENACE
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
+      // fetching all film data
       const response = await fetch(url)
       console.log(response)
 
@@ -43,8 +43,10 @@ export default function App() {
       // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
+      // store the specific data for the first film by splicing out what is not needed
       setFilmOne(data.results.splice(3,1))
+      
+      // setting the error to null if the network request is good
       setError(null)
       
       // catch the error if it exists and display on the page and in the console
@@ -55,31 +57,27 @@ export default function App() {
       }
     })()
 
-    // Loader is set to false when the data needs to be loaded
+    // Loader is set to false when the data needs to be loaded / is loading
     setLoading(false)
     
     // Dependency array listening for when to reinvoke the function
     // But passing it an empty array so that the function is only
-    // invoked once
+    // invoked once, otherwise infinite loop of calls occurs
   }, [])
 
   /// ATTACK OF THE CLONES 4,1
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
       const response = await fetch(url)
       console.log(response)
-
-      // if the response is not okay, fire a network failure status  
+      
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
 
-      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
       setFilmTwo(data.results.splice(4,1))
       setError(null)
       
@@ -97,19 +95,15 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
       const response = await fetch(url)
       console.log(response)
 
-      // if the response is not okay, fire a network failure status  
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
 
-      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
       setFilmThree(data.results.splice(5,1))
       setError(null)
       
@@ -127,19 +121,15 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
       const response = await fetch(url)
       console.log(response)
-
-      // if the response is not okay, fire a network failure status  
+ 
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
 
-      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
       setFilmFour(data.results.splice(0,1))
       setError(null)
       
@@ -157,19 +147,15 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
       const response = await fetch(url)
       console.log(response)
 
-      // if the response is not okay, fire a network failure status  
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
 
-      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
       setFilmFive(data.results.splice(1,1))
       setError(null)
       
@@ -187,19 +173,15 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-      // fetching data for the first film
       const response = await fetch(url)
       console.log(response)
 
-      // if the response is not okay, fire a network failure status  
       if(!response.ok) {
         throw Error(`Attention! Galactic Http Error. Could not fetch the trade federation's data. Status: ${response.status} Check the url.`)
       }
 
-      // creating 'data' variable to reveive data back in that variable
       const data = await response.json()
 
-      // store the data
       setFilmSix(data.results.splice(2,1))
       setError(null)
       
